@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\BlogProviders\Interfaces;
+namespace App\Services\BlogApi\Interfaces;
 
-interface BlogProviderInterface
+interface BlogApiAdaptersInterface
 {
     /** TODO Сделать возвращаемый данные в формате DTO */
     /**
