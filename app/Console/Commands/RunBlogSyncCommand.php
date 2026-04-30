@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Jobs\SyncBlogJob;
 use App\Models\Blog;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class RunBlogSyncCommand extends Command
@@ -29,7 +28,11 @@ class RunBlogSyncCommand extends Command
     public function handle()
     {
         $processedCount = 0;
-        Blog::where('last_sync_at)', '<=', now())->chunkById(100, function ($blogs) {
+
+        Blog::where(function ($query) {
+            $query->whereNull('last_sync_at')
+                ->orWhereRaw("datetime(last_sync_at, '+' || check_interval || ' seconds') <= datetime('now')");
+        })->chunkById(100, function ($blogs) use (&$processedCount) {
             foreach ($blogs as $blog) {
                 SyncBlogJob::dispatch($blog);
                 $processedCount++;
