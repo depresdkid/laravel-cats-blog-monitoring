@@ -24,7 +24,6 @@ final class BlogSyncService
 
         DB::transaction(function () use ($blog, $meta, $posts) {
             $blog->update([
-                'title' => $meta['title'],
                 'cat_name' => $meta['cat_name'],
                 'rating' => $meta['rating'],
                 'last_sync_at' => now(),
