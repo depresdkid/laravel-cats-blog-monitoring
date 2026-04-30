@@ -2,7 +2,7 @@
 
 namespace App\Services\BlogApi\Interfaces;
 
-interface BlogApiAdaptersInterface
+interface BlogApiAdapterInterface
 {
     /** TODO Сделать возвращаемый данные в формате DTO */
     /**
