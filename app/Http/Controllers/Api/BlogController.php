@@ -22,7 +22,9 @@ class BlogController extends Controller
                 'last_sync_at' => null,
             ]);
 
-            return response()->json($blog, 201);
+            return response()->json(
+                ['message' => 'Success', 'error' => 'false'],
+                201);
         } catch (Exception $e) {
             return response()->json([
                 'message' => 'Произошла внутренняя ошибка сервера.',
