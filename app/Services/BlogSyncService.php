@@ -45,7 +45,7 @@ final class BlogSyncService
                 ['title', 'content', 'rating', 'reactions']
             );
 
-            $blog->posts()->whereNotIn('identifier', $posts->pluck('identifier', 'id'))->delete();
+            $blog->posts()->whereNotIn('identifier', $posts->pluck('id', 'identifier'))->delete();
 
             if ($newPosts->isNotEmpty()) {
                 Notification::create([
