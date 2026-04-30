@@ -2,14 +2,14 @@
 
 namespace App\Services\BlogApi\Adapters;
 
-use App\Services\BlogApi\Interfaces\BlogApiAdaptersInterface;
+use App\Services\BlogApi\Interfaces\BlogApiAdapterInterface;
 
-class MockMeowBlogAdapter implements BlogApiAdaptersInterface
+class MockMeowBlogAdapter implements BlogApiAdapterInterface
 {
     public function getBlogMeta(string $identifier): array
     {
         return [
-            'name' => 'Meow Blog',
+            'title' => 'Meow Blog',
             'rating' => 100,
             'cat_name' => 'Big Floppa',
             'author' => 'Кирилл'
