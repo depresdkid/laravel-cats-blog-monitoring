@@ -9,10 +9,9 @@ class MockMeowBlogAdapter implements BlogApiAdapterInterface
     public function getBlogMeta(string $identifier): array
     {
         return [
-            'title' => 'Meow Blog',
+            'identifier' => 'blog_1',
             'rating' => 100,
             'cat_name' => 'Big Floppa',
-            'author' => 'Кирилл'
         ];
     }
 
@@ -22,7 +21,7 @@ class MockMeowBlogAdapter implements BlogApiAdapterInterface
         for ($i = 0; $i < rand(3, 5); $i++) {
             $posts[] = [
                 'identifier' => uniqid(),
-                'title' => 'Флоппа ' . rand(1000, 9999),
+                'title' => 'Флоппа ' . rand(1, 5),
                 'content' => 'Очень большой флоппа...',
                 'rating' => rand(30, 100),
                 'reactions' => ['🐱' => 15, '❤️' => rand(10, 20), '😻' => 3]
